@@ -1,0 +1,50 @@
+[
+  {
+	"id": "caia",
+  	"name": "Cassio Zen",
+	"DOB" : "03/13/1994", 
+  	"email": "cassiozen@gmail.com",
+	"phone": "800-123-1294",
+	"state": "California"
+  },
+  {
+	"id": "daon",
+  	"name": "Dan Abramov",
+	"DOB" : "06/23/1992",
+  	"email": "gaearon@somewhere.com",
+	"phone": "800-123-1237",
+	"state": "Oregon"
+  },
+  {
+	"id": "pene",
+  	"name": "Pete Hunt",
+	"DOB" : "05/10/1991",
+  	"email": "floydophone@somewhere.com",
+	"phone": "800-123-1294",
+	"state": "Maine"
+  },
+  {
+	"id": "paan",
+  	"name": "Paul O’Shannessy",
+	"DOB" : "08/10/1991",
+  	"email": "zpao@somewhere.com",
+	"phone": "800-123-3234",
+	"state": "Michigan"
+  },
+  {
+	"id": "ryda",
+  	"name": "Ryan Florence",
+	"DOB" : "02/10/1990",
+  	"email": "rpflorence@somewhere.com",
+	"phone": "800-123-1534",
+	"state": "Nevada"
+  },
+  {
+	"id": "seas",
+  	"name": "Sebastian Markbage",
+	"DOB" : "05/30/1989",
+  	"email": "sebmarkbage@here.com",
+	"phone": "800-123-1734",
+	"state": "Texas"
+  }
+]
