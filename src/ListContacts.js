@@ -9,7 +9,6 @@ class ListContacts extends Component{
         contacts: PropTypes.array.isRequired,
         removeCont: PropTypes.func.isRequired
     }
-
     
     render(){
         const {contacts, removeCont} = this.props

@@ -1,8 +1,5 @@
 import React from 'react';
 
-function doNothing(){
-    return
-}
 
 function InputField(props){
     return(
@@ -11,8 +8,8 @@ function InputField(props){
                 type={ props.type } 
                 placeholder={ props.ph } 
                 name = {props.name}
-                //value = { props.for === 'edit' ? props.value : ''}
-                onChange = {doNothing}
+                value = {props.value}
+                onChange = {props.handleChange}
             />
         </div>    
     )

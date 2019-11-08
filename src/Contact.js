@@ -5,8 +5,8 @@ import Button from './Button'
 class Contact extends Component{
 
     static propTypes = {
-        contact: PropTypes.object.isRequired,
-        remove: PropTypes.func.isRequired
+        contact: PropTypes.object,
+        remove: PropTypes.func
      }
 
     render(){
@@ -19,10 +19,9 @@ class Contact extends Component{
                 {contact.DOB}<br/>
                 {contact.state}<br/>
                 <Button 
-                contact = {contact}
                 class = 'contact-remove' 
-                name = 'Remove' 
-                handleClick = {remove}/><br/>    
+                type = 'button' 
+                handleClick = {() => remove(contact)}/><br/>    
             </div>
         )
     }

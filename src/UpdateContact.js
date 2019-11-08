@@ -1,20 +1,22 @@
 import React, {Component} from 'react';
 import Header from './Header';
-//import SelectState from './SelectState';
-//import InputField from './InputField'
-//import Button from './Button';
 import PropTypes from 'prop-types'
-import serializeForm from 'form-serialize'
+import SelectState from './SelectState';
+import Select from './Select';
+import InputField from './InputField';
+import Button from './Button';
 
 
 class UpdateContact extends Component{
 
     state = {
-        contact : {name:'',
+        contact : {
+                    name:'',
                     email:'',
                     phone:'',
                     DOB:'',
-                    state:'none'}            
+                    state:'none'
+                }            
     }
     
     static propTypes = 
@@ -22,31 +24,60 @@ class UpdateContact extends Component{
         contacts: PropTypes.array.isRequired,
     } 
     
-    onClickState = (e) => {
-        this.setState({contact : {state: e.target.value}});
+    handleName = (e) => {
+        let value = e.target.value;
+        this.setState(prevState => {
+            return {
+                contact : {
+                    ...prevState.contact, name : value
+                }
+        }})
     }
 
-    onClickName = (e) => {
-        this.setState({contact : {name: e.target.value}});
+    handleEmail = (e) => {
+        let value = e.target.value;
+        this.setState(prevState => {
+            return {
+                contact : {
+                    ...prevState.contact, email : value
+                }
+        }})
     }
 
-    onClickPhone = (e) => {
-        this.setState({contact : {email: e.target.value}});
+    handlePhone = (e) => {
+        let value = e.target.value;
+        this.setState(prevState => {
+            return {
+                contact : {
+                    ...prevState.contact, phone : value
+                }
+        }})
     }
 
-    onClickEmail = (e) => {
-        this.setState({contact : {phone: e.target.value}});
+    handleDOB = (e) => {
+        let value = e.target.value;
+        this.setState(prevState => {
+            return {
+                contact : {
+                    ...prevState.contact, DOB : value
+                }
+        }})
     }
 
-    onClickEmail = (e) => {
-        this.setState({contact : {DOB: e.target.value}});
+    handleState = (e) => {
+        let value = e.target.value;
+        this.setState(prevState => {
+            return {
+                contact : {
+                    ...prevState.contact, state : value
+                }
+        }})
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const values = serializeForm(e.target, { hash: true });
         if(this.props.onEditContact) {
-        this.props.onEditContact(values)
+        this.props.onEditContact(this.state.contact)
         }
     }
 
@@ -76,35 +107,13 @@ class UpdateContact extends Component{
                 <form onSubmit = {this.handleSubmit} className = 'edit-contact-form'>
                 <Header title='Update Contact'/>
                 Select a contact to update<br/>
-                <select value = { this.state.contact.name === '' ? 'none' :this.state.contact.name} 
-                onChange = {(e) => this.handleSelect(e.target.value) }>
-                    <option key = {(Math.random()*32).toString()} value="none" >None Selected</option>
-                    {
-                        contacts.map((c, index) => (
-                            <option key = {(Math.random()*index).toString()} value={c.name} >{c.name}</option>
-                        ))
-                    }
-                </select> <br/>   
-                <input type='text' name='name' value = { this.state.contact.name } onChange = {this.onClickName}/> <br/>
-                <input type='text' name='email' value = { this.state.contact.email } onChange = {this.onClickEmail}/> <br/>
-                <input type='text' name='phone' value = { this.state.contact.phone } onChange = {this.onClickPhone}/> <br/>
-                <input type='date' name='DOB' value = { this.state.contact.DOB } onChange = {this.onClickDOB}/> <br/>
-                <select value = {this.state.contact.state} name = 'state' onChange = {this.onClickState}>
-                    <option value="none" disabled >None Selected</option>
-                    <option value="Alabama">Alabama</option>
-                    <option value="Alaska">Alaska</option>
-                    <option value="Arizona">Arizona</option>
-                    <option value="Arkansas">Arkansas</option>
-                    <option value="California">California</option>
-                    <option value="Colorado">Colorado</option>
-                    <option value="Connecticut">Connecticut</option>
-                    <option value="Delaware">Delaware</option>
-                    <option value="District Of Columbia">District Of Columbia</option>
-                    <option value="Florida">Florida</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Hawaii">Hawaii</option>
-                </select><br/>
-                <button className='editContact' name='Edit'>Update</button>
+                <Select name = {'contact'} value = {this.state.contact.name} handleChange= {(e) => this.handleSelect(e.target.value)} option = {contacts}/><br/>   
+                <InputField type='text' ph='Name' name = 'name' value = {this.state.contact.name} handleChange = {this.handleName}/><br/>
+                <InputField type='text' ph='Email' name = 'email' value = {this.state.contact.email} handleChange = {this.handleEmail}/><br/>
+                <InputField type='text' ph='Phone' name = 'phone' value = {this.state.contact.phone} handleChange = {this.handlePhone}/><br/>
+                <InputField type='date' ph='Date' name = 'DOB' value = {this.state.contact.DOB} handleChange = {this.handleDOB}/><br/>
+                <SelectState name = {'state'} value = {this.state.contact.state} handleChange = { this.handleState }/><br/>
+                <Button class ='edit-contact' type='submit' name = 'Update Contact'></Button>
                 </form>	
             </div>   
         )

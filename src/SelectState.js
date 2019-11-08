@@ -6,7 +6,7 @@ function SelectState(props){
 
     return(
         <div>
-            <select value = "none" onChange = {e => props.onClick(e.target.value)}>
+            <select name={props.name} value = {props.value} onChange = {props.handleChange}>
                 <option value="none" disabled >None Selected</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>

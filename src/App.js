@@ -27,8 +27,7 @@ class App extends Component {
     return contact.name.substring(0,2).toLowerCase() + contact.state.substring(0,2).toLowerCase()
   }
 
-  createContact(contact) {
-    console.log("create COntact called") 
+  createContact(contact) { 
       contact.id = this.generateId(contact)
       this.setState(state => ({
         contacts: state.contacts.concat([ contact ]),
@@ -38,7 +37,6 @@ class App extends Component {
 
     
     editContact(contact) {
-      console.log(this.state.contacts)
       for(const [i, obj] of this.state.contacts.entries())
       {
           if(contact.name === obj.name)
@@ -54,11 +52,11 @@ class App extends Component {
          contacts: state.contacts,
         showUpdateContact: false
       }))
-      console.log(this.state.contacts)
     }
 
   removeContact = (contact) => {
     this.setState((state) => ({
+      
       contacts: state.contacts.filter((c) => c.id !== contact.id)
     }))
   }
@@ -93,8 +91,8 @@ class App extends Component {
           (
           <div>  
           <Header title='My Contacts'/>
-          <Button class = 'contact-edit' name = 'edit' handleClick = {this.showUpdatePage}/>
-          <Button class = 'contact-add' name = 'add' handleClick = {this.showAddPage}/>
+          <Button class = 'contact-edit' type = 'button' handleClick = {this.showUpdatePage}/>
+          <Button class = 'contact-add' type = 'button' handleClick = {this.showAddPage}/>
           <ListContacts 
           contacts = {this.state.contacts}
           removeCont = { this.removeContact }
