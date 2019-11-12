@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import * as capi from './utils/capi';
 import './App.css';
 import ListContacts from './ListContacts'
@@ -8,13 +8,12 @@ import AddContact from './AddContact';
 import UpdateContact from './UpdateContact';
 var index
 
-class App extends Component {
+class App extends PureComponent {
   
   state = {
     contacts:[],
     showAddContact: false,
     showUpdateContact: false,
-    query: ''
     }
 
   componentDidMount () {
@@ -22,6 +21,7 @@ class App extends Component {
       contacts : capi.getAll()
     }))
   }
+
 
   generateId(contact){
     return contact.name.substring(0,2).toLowerCase() + contact.state.substring(0,2).toLowerCase()
@@ -91,8 +91,8 @@ class App extends Component {
           (
           <div>  
           <Header title='My Contacts'/>
-          <Button class = 'contact-edit' type = 'button' handleClick = {this.showUpdatePage}/>
-          <Button class = 'contact-add' type = 'button' handleClick = {this.showAddPage}/>
+          <Button classN = 'contact-edit' type = 'button' handleClick = {this.showUpdatePage}/>
+          <Button classN = 'contact-add' type = 'button' handleClick = {this.showAddPage}/>
           <ListContacts 
           contacts = {this.state.contacts}
           removeCont = { this.removeContact }

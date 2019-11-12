@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 
-function Button(props){
+
+class Button extends PureComponent{
+    
+    render(){ 
+        const { classN, type, handleClick, name} = this.props   
     return(
         <button 
-        className={props.class}
-        type = {props.type} 
-        onClick={props.handleClick}>
-            {props.name}
+        className={classN}
+        type = {type} 
+        onClick={handleClick}>
+            {name}
         </button>
     )
+    }
 }
 
 export default Button

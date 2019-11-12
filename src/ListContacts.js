@@ -1,14 +1,15 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import Contact from './Contact'
 
-class ListContacts extends Component{
+class ListContacts extends PureComponent{
     
     static propTypes = 
     {
         contacts: PropTypes.array.isRequired,
         removeCont: PropTypes.func.isRequired
     }
+
     
     render(){
         const {contacts, removeCont} = this.props

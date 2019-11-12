@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button'
 
-class Contact extends Component{
+class Contact extends PureComponent{
 
     static propTypes = {
         contact: PropTypes.object,
         remove: PropTypes.func
      }
+
 
     render(){
         const { contact, remove } = this.props
@@ -19,7 +20,7 @@ class Contact extends Component{
                 {contact.DOB}<br/>
                 {contact.state}<br/>
                 <Button 
-                class = 'contact-remove' 
+                classN = 'contact-remove' 
                 type = 'button' 
                 handleClick = {() => remove(contact)}/><br/>    
             </div>

@@ -1,18 +1,23 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 
 
-function InputField(props){
+class InputField extends PureComponent{
+    
+
+    render(){
+        const { type, ph, name, value, handleChange } = this.props
     return(
         <div className='input'>
             <input 
-                type={ props.type } 
-                placeholder={ props.ph } 
-                name = {props.name}
-                value = {props.value}
-                onChange = {props.handleChange}
+                type={ type } 
+                placeholder={ ph } 
+                name = {name}
+                value = {value}
+                onChange = {handleChange}
             />
         </div>    
     )
+    }
 }
 
 export default InputField;

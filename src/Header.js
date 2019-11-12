@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 
 
-function Header(props){
+class Header extends PureComponent{
+    
+    render(){
+        const { title } = this.props
     return(
         <div>
             <h2>
-                <center>{props.title}</center>
+                <center>{title}</center>
             </h2>
         </div>
     )
+    }
 }
 
 export default Header
